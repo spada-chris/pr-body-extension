@@ -1,6 +1,5 @@
 function runContentScript() {
   if (shouldRunScript()) {
-    console.log("should run script", window.location.href)
     let pullUrl;
     if (window.location.href.includes("/files")) {
       pullUrl = window.location.href.split("/files")[0];
@@ -22,8 +21,6 @@ function runContentScript() {
       const el = document.getElementById("files");
       el.insertBefore(pullBody, el.firstChild);
     });
-  } else {
-    console.log("shouldnt run script", window.location.href)
   }
 }
 
