@@ -12,14 +12,24 @@ function runContentScript() {
       }
       throw response;
     }).then(function (text) {
-      const testDiv = document.createElement("div");
-      testDiv.innerHTML = text.trim();
+      const button = document.createElement("div");
+      const containerDiv = document.createElement("div");
+      containerDiv.style = "display: none; position: fixed; max-height: 800px; max-width: 840px; bottom: 10px; top: 15px; left: 50px; overflow: scroll;"
+      button.style = "position: fixed; bottom: 10px; left: 10px; z-index: 1000; background-color: #303030; border-radius: 4px; padding: 20px; cursor: pointer;"
+      button.onclick = function() {
+        containerDiv.style.display = containerDiv.style.display === "block" ? "none": "block";
+      }
       
-      const pullBody = testDiv.getElementsByClassName("js-command-palette-pull-body")[0].getElementsByClassName("edit-comment-hide")[0];
-      pullBody.style = "max-width: 840px; margin: 0 auto 10px auto; border: 1px solid #303030; border-radius: 4px; padding: 10px;";
+      const contentDiv = document.createElement("div");
+      contentDiv.innerHTML = text.trim();
       
-      const el = document.getElementById("files");
-      el.insertBefore(pullBody, el.firstChild);
+      const pullBody = contentDiv.getElementsByClassName("js-command-palette-pull-body")[0].getElementsByClassName("edit-comment-hide")[0];
+      pullBody.style = "display: absolute; bottom: 15px; left: 15px; max-width: 840px; border: 1px solid #303030; border-radius: 4px; padding: 10px; background-color: rgba(0,0,0,0.8)";
+      
+      const body = document.getElementsByTagName("body")[0];
+      body.insertBefore(button, null);
+      body.insertBefore(containerDiv, null);
+      containerDiv.insertBefore(pullBody, null);
     });
   }
 }
