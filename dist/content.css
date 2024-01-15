@@ -1,0 +1,42 @@
+.pr-body-button {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 1000;
+  background-color: #303030;
+  padding: 20px;
+}
+
+.pr-body-button:hover {
+  background-color: #505050;
+}
+
+.pr-body-button:active {
+  background-color: #707070;
+}
+
+.pr-body-container {
+  display: none;
+  position: fixed;
+  max-height: 800px;
+  max-width: 840px;
+  bottom: 10px;
+  top: 15px;
+  left: 60px;
+  overflow: scroll;
+  transition: all 5s ease;
+}
+
+.pr-body-content {
+  display: absolute;
+  bottom: 15px;
+  left: 15px;
+  max-width: 840px;
+  border: 1px solid #303030;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.9);
+}

@@ -1,0 +1,1 @@
+(()=>{"use strict";chrome.tabs.onUpdated.addListener((function(e,s,r){s.url&&chrome.tabs.sendMessage(e,{message:"new_url",url:s.url})}))})();
