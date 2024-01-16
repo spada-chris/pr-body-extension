@@ -12,8 +12,9 @@ function runContentScript() {
       }
       throw response;
     }).then(function (text) {
-      const button = document.createElement("div");
+      const button = document.createElement("img");
       button.setAttribute("class", "pr-body-button");
+      button.src = chrome.runtime.getURL("human-body.png");
       button.onclick = function() {
         containerDiv.style.display = containerDiv.style.display === "block" ? "none": "block";
       }
@@ -32,6 +33,11 @@ function runContentScript() {
       body.insertBefore(containerDiv, null);
       containerDiv.insertBefore(pullBody, null);
     });
+  } else {
+    const button = document.getElementsByClassName("pr-body-button").item(0);
+    if (button) {
+      button.remove();
+    }
   }
 }
 

@@ -7,7 +7,8 @@
   left: 10px;
   z-index: 1000;
   background-color: #303030;
-  padding: 20px;
+  height: 50px;
+  width: 50px;
 }
 
 .pr-body-button:hover {
@@ -21,10 +22,9 @@
 .pr-body-container {
   display: none;
   position: fixed;
-  max-height: 800px;
+  max-height: 90vh;
   max-width: 840px;
   bottom: 10px;
-  top: 15px;
   left: 60px;
   overflow: scroll;
   transition: all 5s ease;
