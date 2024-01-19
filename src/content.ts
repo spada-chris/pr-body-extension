@@ -14,7 +14,7 @@ function runContentScript() {
     }).then(function (text) {
       const button = document.createElement("img");
       button.setAttribute("class", "pr-body-button");
-      button.src = chrome.runtime.getURL("human-body.png");
+      button.src = chrome.runtime.getURL("icon.png");
       button.onclick = function() {
         containerDiv.style.display = containerDiv.style.display === "block" ? "none": "block";
       }
